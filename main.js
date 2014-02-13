@@ -53,9 +53,7 @@
             .append("svg")
                 .attr("width", width)
                 .attr("height", height)
-                .append("g")
-                    .call(zoom)
-                    .on("dblclick.zoom", null);
+                .append("g");
  
         //Create a list of random stars and add them to outerspace
         var starList = createStars(300);
@@ -77,27 +75,9 @@
             .attr("width", width)
             .attr("height", height);
  
-        //Create the base globe
-        var backgroundCircle = svg.append("circle")
-            .attr('cx', width / 2)
-            .attr('cy', height / 2)
-            .attr('r', projection.scale())
-            .attr('class', 'globe')
-            .attr("filter", "url(#glow)")
-            .attr("fill", "url(#gradBlue)");
- 
         var g = svg.append("g"),
             features;
- 
-        //Add all of the countries to the globe
-        d3.json("world-countries.json", function(collection) {
-            features = g.selectAll(".feature").data(collection.features);
- 
-            features.enter().append("path")
-                .attr("class", "feature")
-                .attr("d", function(d){ return path(circle.clip(d)); });
-        });
- 
+
         //Redraw all items with new projections
         function redraw(){
             features.attr("d", function(d){
