@@ -1,41 +1,61 @@
 body {
-    background-color: #444444;
-    background-image: -webkit-gradient(linear, left top, right bottom, from(#000), to(#333)); 
-    background-image: -webkit-linear-gradient(left top, #000, #333);
-    background-image: -moz-linear-gradient(left top, #000, #333);
-    overflow: hidden;
+  background-color: #444444;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#000), to(#333)); 
+  background-image: -webkit-linear-gradient(left top, #000, #333);
+  background-image: -moz-linear-gradient(left top, #000, #333);
+  overflow: hidden;
 }
  
 #info {
-    position: absolute;
-    z-index: 10;
-    left: 25px;
-    top: 25px;
+  position: absolute;
+  z-index: 1;
+  left: 25px;
+  top: 25px;
 }
  
 #defs {
-    height: 0;
-    width:0;
+  height: 0;
+  width:0;
 }
  
-.frame {
-    fill: none;
-    pointer-events: all;
+.frame1, .frame2{
+  fill: none;
+  pointer-events: all;
+}
+
+.frame2 {
+  position: relative;
+  height: 120%;
 }
  
 .feature {
-    fill: #6CCC00;
-    stroke: #fff;
-    stroke-width: .5px;
+  fill: #6CCC00;
+  stroke: #fff;
+  stroke-width: .5px;
 }
  
 .globe {
-    stroke: rgba(255, 255, 255, .5);
-    stroke-width: .25px;
+  stroke: rgba(255, 255, 255, .5);
+  stroke-width: .25px;
 }
  
 .star {
-    fill: #fff;
-    stroke: rgba(255, 255, 255, .5);
-    stroke-width: .25px;
+  fill: #fff;
+  stroke: rgba(255, 255, 255, .5);
+  stroke-width: .25px;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, .1);
+}
+
+.h1 {
+  font-size: 30px;
+  color: #fff;
 }
