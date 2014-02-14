@@ -59,16 +59,24 @@
               return spacePath(d);
             })
             .on('mouseover', function(e) {
-              d3.select(this).attr("d", function(d) {
-                spacePath.pointRadius(5);
-                return spacePath(d);
-              })
+              d3.select(this)
+                .transition(0)
+                  .delay(0)
+                  .duration(250)
+                  .attr("d", function(d) {
+                    spacePath.pointRadius(5);
+                    return spacePath(d);
+                  })
             })
             .on('mouseout', function(e) {
-              d3.select(this).attr('d', function(d) {
-                spacePath.pointRadius(1.5);
-                return spacePath(d);
-              })
+              d3.select(this)
+                .transition(0)
+                  .delay(0)
+                  .duration(1000)
+                  .attr('d', function(d) {
+                    spacePath.pointRadius(1.5);
+                    return spacePath(d);
+                  })
             })
             .on('click', function(e) {
               alert('aloha');
