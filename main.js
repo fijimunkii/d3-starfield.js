@@ -12,17 +12,16 @@
           getSize();
         }, 100);
       } else {
-        init({frame: 1, rotate: 0, distance: 250, direction: 'top', random: true});
-        init({frame: 2, rotate: 0, distance: 300, direction: 'top', random: true});
-        init({frame: 3, rotate: 0, distance: 300, direction: 'top', random: true});
-        init({frame: 4, rotate: 0, distance: 400, direction: 'top', random: true});
-        init({frame: 5, rotate: 0, distance: 200, random: false});
+        init({frame: 1, start: 0,   rotate: 0, distance: 400, direction: 'top', random: true});
+        init({frame: 2, start: 100, rotate: 0, distance: 300, direction: 'top', random: true});
+        init({frame: 3, start: 200, rotate: 0, distance: 200, direction: 'top', random: true});
+        init({frame: 4, start: 300, rotate: 0, distance: 0, direction: 'top', random: true});
+        init({frame: 5, start: 0,   rotate: 0, distance: 200, random: false});
       }
     }
  
     function init(options){
 
-      //Setup path for outerspace
       var space = d3.geo.azimuthal()
           .mode("equidistant")
           .translate([width / 2, height / 2]);
@@ -33,29 +32,20 @@
           .projection(space)
           .pointRadius(1);
 
-      //Setup path for globe
       var projection = d3.geo.azimuthal()
           .mode("orthographic")
           .translate([width / 2, height / 2]);
 
-      var scale0 = projection.scale();
-
-      var path = d3.geo.path()
-          .projection(projection)
-          .pointRadius(2);
-
-      var circle = d3.geo.greatCircle();
-
       var svg = d3.select("body")
           .append("svg")
-          .attr("width", width)
-          .attr("height", height)
-          .attr("class", "svg" + options.frame)
-          .attr("data-0", "transform:rotate(0deg);" + "top:0;")
-          .attr("data-500", "transform:rotate(" + options.rotate + "deg);" +
-                            "top:" + options.distance + "px;")
- 
-      //Create a list of random stars and add them to outerspace
+            .attr("width", width)
+            .attr("height", height + 200)
+            .attr("style", "position:absolute;top:" + options.start + "px;")
+            .attr("class", "svg" + options.frame)
+            .attr("data-0", "transform:rotate(0deg);" + "top:0;")
+            .attr("data-500", "transform:rotate(" + options.rotate + "deg);" +
+                              "top:" + options.distance + "px;");
+  
       var starList = createStars({number: 1000, random: options.random});
       
       var stars = svg.append("g")
@@ -68,17 +58,9 @@
               spacePath.pointRadius(d.properties.radius);
               return spacePath(d);
             })
+            .on('click', function(){alert('whatup');})
             .on("mouseover", function(){alert('aloha');})
             .on("mouseout", function(){d3.select(this).style("fill", "white");});
-
-      svg.append("rect")
-          .attr("class", "frame")
-          .attr("width", width)
-          .attr("height", height);
-
-      var g = svg.append("g"),
-          features;
-
 
       function createStars(options){
         var data = [];
