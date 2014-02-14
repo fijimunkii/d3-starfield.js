@@ -43,6 +43,11 @@ body {
   top: 300px;
 }
 
+.svg5 {
+  position: absolute;
+  top: 0;
+}
+
 .feature {
   fill: #6CCC00;
   stroke: #fff;
