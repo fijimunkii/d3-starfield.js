@@ -58,9 +58,21 @@
               spacePath.pointRadius(d.properties.radius);
               return spacePath(d);
             })
-            .on('click', function(){alert('whatup');})
-            .on("mouseover", function(){alert('aloha');})
-            .on("mouseout", function(){d3.select(this).style("fill", "white");});
+            .on('mouseover', function(e) {
+              d3.select(this).attr("d", function(d) {
+                spacePath.pointRadius(5);
+                return spacePath(d);
+              })
+            })
+            .on('mouseout', function(e) {
+              d3.select(this).attr('d', function(d) {
+                spacePath.pointRadius(1.5);
+                return spacePath(d);
+              })
+            })
+            .on('click', function(e) {
+              alert('aloha');
+            });
 
       function createStars(options){
         var data = [];
