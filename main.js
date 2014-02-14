@@ -12,10 +12,10 @@
           getSize();
         }, 100);
       } else {
-        init({frame: 1, rotate: 0});
-        init({frame: 2, rotate: 0});
-        init({frame: 3, rotate: 0});
-        init({frame: 4, rotate: 0});
+        init({frame: 1, rotate: 0, distance: 100});
+        init({frame: 2, rotate: 0, distance: 200});
+        init({frame: 3, rotate: 0, distance: 300});
+        init({frame: 4, rotate: 0, distance: 400});
       }
     }
  
@@ -50,8 +50,9 @@
           .attr("width", width)
           .attr("height", height)
           .attr("class", "svg" + options.frame)
-          .attr("data-0", "transform:rotate(0deg);")
-          .attr("data-500", "transform:rotate(" + options.rotate + "deg);")
+          .attr("data-0", "transform:rotate(0deg);top:0;")
+          .attr("data-500", "transform:rotate(" + options.rotate + "deg);" +
+                            "top:" + options.distance + "px;")
  
       //Create a list of random stars and add them to outerspace
       var starList = createStars({number: 2000, random: true});
