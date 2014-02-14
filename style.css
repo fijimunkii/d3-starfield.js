@@ -6,13 +6,6 @@ body {
   overflow-x: hidden;
 }
  
-#info {
-  position: absolute;
-  z-index: 1;
-  left: 25px;
-  top: 25px;
-}
- 
 .frame{
   fill: none;
   pointer-events: all;
@@ -22,16 +15,10 @@ svg {
   position: absolute;
 }
 
-.feature {
-  fill: #6CCC00;
-  stroke: #fff;
-  stroke-width: .5px;
-}
- 
 .star {
   fill: #fff;
-  stroke: rgba(255, 255, 255, .5);
-  stroke-width: .25px;
+  stroke: rgba(255, 255, 255, 0);
+  stroke-width: 10px;
 }
 
 .container {
