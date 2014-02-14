@@ -47,6 +47,7 @@
           .append("svg")
           .attr("width", width)
           .attr("height", height)
+          .attr("class", "svg" + options.frame)
           .append("g");
 
       //Create a list of random stars and add them to outerspace

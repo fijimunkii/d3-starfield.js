@@ -3,7 +3,6 @@ body {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#000), to(#333)); 
   background-image: -webkit-linear-gradient(left top, #000, #333);
   background-image: -moz-linear-gradient(left top, #000, #333);
-  overflow: hidden;
 }
  
 #info {
@@ -17,6 +16,11 @@ body {
   height: 0;
   width:0;
 }
+
+svg {
+  position: absolute;
+  top: 0;
+}
  
 .frame1, .frame2{
   fill: none;
@@ -25,7 +29,7 @@ body {
 
 .frame2 {
   position: relative;
-  height: 120%;
+  top: 100px;
 }
  
 .feature {
@@ -46,16 +50,13 @@ body {
 }
 
 .container {
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 5;
   height: 100%;
   width: 100%;
   background: rgba(255, 255, 255, .1);
 }
 
-.h1 {
+h1 {
   font-size: 30px;
   color: #fff;
 }
