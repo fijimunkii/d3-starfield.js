@@ -12,8 +12,10 @@
           getSize();
         }, 100);
       } else {
-        init({frame: 1});
-        init({frame: 2});
+        init({frame: 1, rotate: 0});
+        init({frame: 2, rotate: 0});
+        init({frame: 3, rotate: 0});
+        init({frame: 4, rotate: 0});
       }
     }
  
@@ -48,8 +50,9 @@
           .attr("width", width)
           .attr("height", height)
           .attr("class", "svg" + options.frame)
-          .append("g");
-
+          .attr("data-0", "transform:rotate(0deg);")
+          .attr("data-500", "transform:rotate(" + options.rotate + "deg);")
+ 
       //Create a list of random stars and add them to outerspace
       var starList = createStars({number: 2000, random: true});
               
@@ -66,7 +69,7 @@
 
 
       svg.append("rect")
-          .attr("class", "frame" + options.frame)
+          .attr("class", "frame")
           .attr("width", width)
           .attr("height", height);
 
